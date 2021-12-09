@@ -14,15 +14,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         carRecyclerView= findViewById(R.id.car_recycler_view)
 
-        val carList:List<Car> = listOf(
-        Car("Ferrari", R.drawable.red_ferrari),
-        Car("Audi", R.drawable.audi_gray),
-        Car("Mercedes", R.drawable.mercedes_black)
-        )
 
         carRecyclerView.layoutManager=
             LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
-        carRecyclerView.adapter=CarAdapter(carList)
+
 
 
     }
