@@ -1,32 +1,37 @@
 package select.exafrgmple5.myapplication
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+
+private const val TAG = "MyTag"
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var carRecyclerView: RecyclerView
+    lateinit var switchFragmentButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        carRecyclerView = findViewById(R.id.car_recycler_view)
+        switchFragmentButton= findViewById(R.id.switch_fragments_button)
 
-        val carList:List<Car> = listOf(
-            Car.SportCar("Ferrari", 500,100,"Red"),
-            Car.CityCar("Ford", 5, 10000)
-        )
+        val startFragment=StartFragment()
+        val endFragment=EndFragment()
 
-        carRecyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        carRecyclerView.addItemDecoration(DividerItemDecoration
-            (this, DividerItemDecoration.VERTICAL))
-        carRecyclerView.adapter = CarAdapter(carList)
+        switchFragmentButton.setOnClickListener {
+            val fragment =
+                when (supportFragmentManager.findFragmentById(R.id.fragment_container)){
+                    is StartFragment -> endFragment
+                    is EndFragment -> startFragment
+                    else -> startFragment
+                }
 
-
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(fragment.tag)
+                .commit()
+        }
     }
 }
 
