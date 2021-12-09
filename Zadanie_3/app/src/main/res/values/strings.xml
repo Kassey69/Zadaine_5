@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">My Application</string>
+    <string name="hello">Hello world</string>
+    <string name="random">Random</string>
+    <string name="next_activity">Next activity</string>
+    <string name="new_text">New text</string>
+    <string name="next">New text</string>
+</resources>

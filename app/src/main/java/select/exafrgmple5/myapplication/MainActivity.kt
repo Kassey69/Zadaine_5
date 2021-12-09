@@ -1,49 +1,31 @@
 package select.exafrgmple5.myapplication
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var userRecyclerView: RecyclerView
+    lateinit var carRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        carRecyclerView= findViewById(R.id.car_recycler_view)
 
-
-        val userList:List<User> = listOf(
-            User("Ivan", 26),
-            User("Elena", 19),
-            User("Anna", 21),
-            User("Maxim", 100)
+        val carList:List<Car> = listOf(
+        Car("Ferrari", R.drawable.red_ferrari),
+        Car("Audi", R.drawable.audi_gray),
+        Car("Mercedes", R.drawable.mercedes_black)
         )
 
-        userRecyclerView = findViewById(R.id.user_recyclar_view)
-        userRecyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
-        userRecyclerView.adapter = UserAdapter(userList)
+        carRecyclerView.layoutManager=
+            LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
+        carRecyclerView.adapter=CarAdapter(carList)
 
-        userRecyclerView.addItemDecoration(DividerItemDecoration
-            (this,DividerItemDecoration.VERTICAL))
+
     }
 }
 
-// RecyclerView <- Adapter <- ViewHolder <- layout
-// 1. LayoutManager - a) LinearLayoutManager
-// (работает либо сверху вниз, либо слева направо вывести вссе элементы) и
-// b) GridLayoutManager(сколько нужно столбцов)
-// 2. Adapter
-
-//RecyclerView  DONE
-//Adapter - DONE
-//ViewHolder - DONE
-//layout - DONE
 
