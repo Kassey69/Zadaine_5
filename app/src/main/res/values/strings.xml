@@ -8,5 +8,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="end_fragment">end_fragment</string>
+    <string name="new_fragment">New_Fragment</string>
+    <string name="old_fragment">old_Fragment</string>
+    <string name="run_fragments">run_fragments</string>
 
 </resources>

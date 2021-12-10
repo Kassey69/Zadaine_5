@@ -10,15 +10,17 @@
         android:id="@+id/my_fragment_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
         android:gravity="center"
         android:text="@string/my_fragments"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+       />
 
     <Button
-        android:id="@+id/switch_fragments_button"
+        android:id="@+id/run_fragments_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/switch_fragments"
+        android:text="@string/run_fragments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_fragment_text" />
@@ -28,5 +30,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_fragments_button" />
+        app:layout_constraintTop_toBottomOf="@+id/run_fragments_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

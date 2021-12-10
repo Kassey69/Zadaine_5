@@ -13,26 +13,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        switchFragmentButton= findViewById(R.id.switch_fragments_button)
+        switchFragmentButton= findViewById(R.id.run_fragments_button)
 
-        val startFragment=StartFragment()
-        val endFragment=EndFragment()
+        val newFragment=NewFragment()
+        val oldFragment=OldFragment()
 
         switchFragmentButton.setOnClickListener {
             val fragment =
                 when (supportFragmentManager.findFragmentById(R.id.fragment_container)){
-                    is StartFragment -> endFragment
-                    is EndFragment -> startFragment
-                    else -> startFragment
+                    is NewFragment -> oldFragment
+                    is OldFragment -> newFragment
+                    else -> newFragment
                 }
 
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container, fragment)
-                .addToBackStack(fragment.tag)
                 .commit()
         }
     }
 }
 
-
+// Создать новое приложение и реализовать в нем смену двух фрагментов
+// 03_11_21 задание   Реализация приложения с дизайном,
+// транзакциями фрагментов, работой с View и жизненным циклом
